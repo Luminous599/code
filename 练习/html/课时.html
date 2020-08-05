@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课时</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .box{
+            width: 600px;
+            height: 300px;
+            margin: 200px auto;
+            border: 1px solid black;
+        }
+        .nav{
+            width: 100%;
+            height: 50px;
+            background: #000;
+        }
+
+        .nav li{
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: white;
+            float: left;
+        }
+        .nav .active{
+            background-color: #ddd;
+            color: black;
+        }
+        .content .content-text{
+            display: none;
+        }
+        .content .active{
+            display: block;
+        }
+        .content .content-text li{
+            height: 30px;
+            line-height: 30px;
+            /* text-align: center; */
+            margin-top: 10px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="nav">
+            <ul>
+                <li class="nav-list active">第一课时</li>
+                <li class="nav-list">第二课时</li>
+                <li class="nav-list">第三课时</li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content-text active">
+                <ul>
+                    <li class="ct-first">第一课时第一节课</li>
+                    <li class="ct-first">第一课时第二节课</li>
+                    <li class="ct-first">第一课时第三节课</li>
+                </ul>
+            </div>
+            <div class="content-text">
+                <ul>
+                    <li class="ct-middle">第二课时第一节课</li>
+                    <li class="ct-middle">第二课时第二节课</li>
+                    <li class="ct-middle">第二课时第三节课</li>
+                </ul>
+            </div>
+            <div class="content-text">
+                <ul>
+                    <li class="ct-last">第三课时第一节课</li>
+                    <li class="ct-last">第三课时第二节课</li>
+                    <li class="ct-last">第三课时第三节课</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+       var navLi = document.getElementsByClassName("nav-list");
+       var contentTxet = document.getElementsByClassName("content-text");
+
+       for(var i=0;i<navLi.length;i++){
+           navLi.onmouseover = function(){
+               
+           }
+       }                                                                                                                                
+    </script>
+</body>
+</html>

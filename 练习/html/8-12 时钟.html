@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时钟</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 1px dashed black;
+            margin: 100px auto;
+        }
+        .clock-content{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 1px solid black;
+            position: relative;
+        }
+        .clock-content .ci-line li{
+            width: 4px;
+            height: 10px;
+            background-color: black;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -2px;
+            transform-origin: 2px 150px;
+        }
+        .clock-content li:nth-child(5n+1){
+            height: 20px;
+            background-color: dimgrey;
+        }
+        .hour,.minute,.second{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-100%);
+            top: 50%;
+        }
+        .hour{
+            width: 10px;
+            height: 40px;
+            background-color: blueviolet;
+        }
+        .minute{
+            width: 8px;
+            height: 60px;
+            background-color: cadetblue;
+        }
+        .second{
+            width: 4px;
+            height: 90px;
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="clock-content">
+            <div class="clock-index">
+                <ul class="ci-line"></ul>
+            </div>
+            <div>
+                <div class="hour"></div>
+                <div class="minute"></div>
+                <div class="second"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var ciLine = document.getElementsByClassName("ci-line")[0];
+        var ohour = document.getElementsByClassName("hour")[0];
+        var ominute = document.getElementsByClassName("minute")[0];
+        var osecond = document.getElementsByClassName("second")[0];
+        var htmlStr = "";
+       
+
+        for(var i = 0;i < 60;i ++){
+            htmlStr += "<li style='transform:rotate("+i*6+"deg)'><li/>"
+        }
+        ciLine.innerHTML = htmlStr;
+        
+        setInterval(function(){
+            run();
+        },1000)
+        function run(){
+            var timer = new Date();
+            var nowHour = timer.getHours();
+            var nowMinute = timer.getMinutes();
+            var nowSecond = timer.getSeconds();
+            nowSecond.style.transform = "translate(-50%,-100%) rotate("+ nowSecond*6 +"deg)";
+            nowMinute.style.transform = "translate(-50%,-100%) rotate("+ nowMinute*6 +"deg)";
+            nowHour.style.transform = "translate(-50%,-100%) rotate("+ nowHour*6 +"deg)";
+        }
+    </script>
+</body>
+</html>

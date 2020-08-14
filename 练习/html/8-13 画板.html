@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画板</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .can{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="can" width="400" height="400"></canvas>
+    <script>
+        var oCan = document.getElementsByClassName("can")[0];
+        var oCanContext = oCan.getContext("2d");
+        oCanContext.strokeStyle = "blue";
+            oCanContext.lineWidth = 5;
+        oCan.onmousedown = function(e){
+            oCanContext.beginPath();
+            var x1 = e.clientX;
+            var y1 = e.clientY;
+            oCanContext.moveTo(x1,y1);
+            
+            oCan.onmousemove = function(event){
+                var x2 = event.clientX;
+                var y2 = event.clientY;
+                ocanContext.lineTo(x2,y2);
+                ocanContext.stroke();
+            }
+        } 
+    </script>
+</body>
+</html>

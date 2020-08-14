@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动效轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: black;
+        }
+        li{
+            list-style: none;
+        }
+        .box{
+            width: 490px;
+            height: 170px;
+            border: 5px solid white;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .box .img-box ul{
+            width: 2450px;
+        }
+        .box .img-box li{
+            float: left;
+
+        }
+        .box .btn-box{
+            width: 100%;
+            position: absolute;
+            bottom: 8px;
+        }
+        .box .btn-box li{
+            height: 20px;
+            width: 20px;
+            color: white;
+            background-color: #f90;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            margin-left: 5px    ;
+            float: left;            
+        }
+        .btn-box .right-btn li{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="img-box">
+            <ul>
+                <li><img src="../image/01.jpg" alt=""></li>
+                <li><img src="../image/02.jpg" alt=""></li>
+                <li><img src="../image/03.jpg" alt=""></li>
+                <li><img src="../image/04.jpg" alt=""></li>
+                <li><img src="../image/05.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="btn-box">
+            <div class="left-btn">
+                <ul>
+                    <li>&lt;</li>
+                    <li>&gt;</li>
+                </ul>
+            </div>
+            <div class="right-btn">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

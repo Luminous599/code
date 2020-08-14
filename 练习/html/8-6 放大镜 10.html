@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .small-box{
+            width: 400px;
+            height: 400px;
+            background-image: url("../image/王一博\ -\ 11.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: -110px 0;
+            display: inline-block;
+            overflow: hidden;
+        }
+        .content{
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            /* background-color: white; */
+        }
+        .big-box{
+            width: 400px;
+            height: 400px;
+            background-image: url("../image/王一博\ -\ 11.jpg");
+            background-size: contain;
+            background-position: 0,0;
+            overflow: hidden;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="small-box">
+        <div class="content"></div>
+    </div>
+    <div class="big-box"></div>
+    <script>
+        var oContent = document.getElementsByClassName("content")[0];
+        var oBBox = document.getElementsByClassName("big-box")[0];
+
+        oContent.onmousemove = function(e){
+            var x = e.clientX;
+            var y = e.clientY;
+            var oContentTop = oContent.offsetTop;
+            var oContentLeft = oContent.offsetLeft;
+            // console.log(oContentTop,oContentLeft);
+
+        }
+    </script>
+</body>
+</html>

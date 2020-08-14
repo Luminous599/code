@@ -86,11 +86,17 @@
     </div>
     <script>
        var navLi = document.getElementsByClassName("nav-list");
-       var contentTxet = document.getElementsByClassName("content-text");
+       var contentText = document.getElementsByClassName("content-text");
 
        for(var i=0;i<navLi.length;i++){
-           navLi.onmouseover = function(){
-               
+           navLi[i].index = i;
+           navLi[i].onmouseover = function(){
+             for(var j=0;j<navLi.length;j++){
+                 navLi[j].classList.remove("active");
+                 contentText[j].classList.remove("active");
+             } 
+             this.classList.add("active");
+             contentText[this.index].classList.add("active");
            }
        }                                                                                                                                
     </script>

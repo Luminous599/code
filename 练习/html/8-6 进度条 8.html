@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进度条</title>
+</head>
+<style>
+    .box{
+        width: 500px;
+        height: 50px;
+        border: 1px solid black;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .content{
+        height: 50px;
+        width: 0;
+        background-color: cornflowerblue;
+    }
+    button{
+        margin-top: 10px;
+    }
+</style>
+<body>
+    <div class="box">
+        <div class="content"></div>
+    </div>
+    <button>开始</button>
+    <script>
+        var oBtn = document.getElementsByTagName("button")[0];
+        var oContent = document.getElementsByClassName("content")[0];
+        var num =0;
+        /*  第一种方法*/
+        // oBtn.onclick = function(){
+        //     var timer = setInterval(function(){
+        //         if(oContent.offsetWidth < 500){
+        //             oContent.style.width = (oContent.offsetWidth + 5) + "px";
+        //             oContent.innerText = (++num) + "%";
+        //         }else{
+        //             clearInterval(timer);
+        //         }
+        //     },16)
+           
+        // }
+
+        /*  第二种方法*/
+
+    oBtn.onclick = run;
+    function run(){
+        if(oContent.offsetWidth <500){
+            oContent.style.width = (oContent.offsetWidth + 5) + "px";
+            oContent.innerText = (++num) + "%";
+            requestAnimationFrame(run);
+        }
+    }
+    </script>
+</body>
+</html>

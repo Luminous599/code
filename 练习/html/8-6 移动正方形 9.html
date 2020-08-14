@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动正方形</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+</style>
+<body>
+    <div class="box"></div>
+    <script>
+        var oBox = document.getElementsByClassName("box")[0];
+
+        oBox.onmousedown = function(e){
+            var oBoxTop = oBox.offsetTop;
+            var oBoxLeft = oBox.offsetLeft;
+            var x = e.clientX ;
+            var y = e.clientY ;
+            document.onmousemove = function(e){
+                oBox.style.top = (e.clientY - (y - oBoxTop)) + "px";
+                oBox.style.left = (e.clientX - (x - oBoxLeft)) + "px";
+            }
+        }
+        oBox.onmouseup = function(){
+            document.onmousemove = null;
+        }
+    </script>
+</body>
+</html>

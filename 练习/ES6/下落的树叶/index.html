@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var screenWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+        function Leaf(){
+            this.width = (Math.random()*100+50);
+            this.left = Math.random()*(screenWidth-this.width);
+            this.top = 0;
+
+            var img = new Image();
+            img.src = "./img/"+(Math.floor(Math.random()*4)+1)+".png";
+            img.style.width = this.width + "px";
+            img.style.left = this.left + "px";
+            img.style.top = this.top + "px";
+
+            this.img = img;
+        }
+
+        Leaf.prototype.init = function(){
+            document.body.appendChild(this.img);
+        }
+        Leaf.prototype.fall = function(){
+            setTimeout(()=>{
+                this.timer = setInterval(() => {
+                    if(this.img.offsetTop >= (screenHeight - this.img.offsetHeight)){
+                        clearInterval(timer);
+                    }else{
+                        this.img.style.top = (this.img.offsetTop + 5 ) + "px";
+                    }
+                },10 );
+            },Math.random()*1000)
+        }
+        var leafList = [];
+        for(var i=0; i<10; i++){
+            var leaf = new Leaf();
+            leafList.push(leaf);
+            leaf.init();
+        }
+        document.onclick = function(){
+            for(var i=0; i<leafList.length; i++){
+                leafList[i].fall();
+            }
+        }
+        
+    </script>
+    
+</body>
+</html>

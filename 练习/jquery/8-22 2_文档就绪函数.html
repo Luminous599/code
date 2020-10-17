@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        //等待所有资源加载完毕后再执行（包括图片视频）多个会覆盖
+        // window.onload = function(){
+        //     var oDiv = document.getElementById("div1");
+        //     console.log(oDiv.innerHTML);
+        // }
+
+        //等待与DOM有关的文档，文档就绪函数加载完毕执行，不用等待所有资源加载完毕 多个不覆盖
+        //简写
+        $(function(){
+            var oDiv = document.getElementById("div1");
+            console.log(oDiv.innerHTML);
+        })
+        //全写
+        $(document).ready(function(){
+            var oDiv = document.getElementById("div1");
+            console.log(oDiv.innerHTML);
+        })
+    </script>   
+
+
+    </script>
+</head>
+
+<body>
+
+    <div id="div1">
+        哈哈哈
+    </div>
+
+    
+
+</body>
+
+</html>

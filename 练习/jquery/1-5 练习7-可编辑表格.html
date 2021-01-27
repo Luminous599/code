@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 16px;
+        }
+
+        table {
+            margin: 0 auto;
+            /* text-align: center; */
+            width: 400px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        tbody th {
+            background-color: lightslategrey;
+        }
+
+        table tr,td,th {
+            width: 50%;
+            height: 30px;
+            border: 1px solid black;
+        }
+    </style>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <table style="border:1px solid black;">
+        <thead>
+            <tr>
+                <th colspan="2">鼠标点击表格就可以编辑</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>学号</td>
+                <th>姓名</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="editable">张三</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="editable">李四</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="editable">王五</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <script>
+        $(".editable").on("click",function () {
+            if ($(".editable").children().length == 0) {
+                var inp = $("<input type='text'>");
+                var inpVal = $(this).text();
+                inp.val(inpVal);
+                $(this).text("");
+                $(this).append(inp);
+                inp.focus();
+                console.log("inp");
+            }
+        })
+        $(".editable").on("focusout",function(){
+            var inpVal = $(this).find(":input").val();
+            $(this).text(inpVal);
+        })
+        $(".editable").keydown(function(e){
+            if(e.which == 13){
+                $(this).trigger("focusout");
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

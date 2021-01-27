@@ -1,0 +1,9 @@
+.div1{
+    color: aquamarine;
+    width: 200px;
+    height: 200px;
+    background-image: url("../image/slider3.jpg");
+}
+::placeholder{
+    color: blue;
+}

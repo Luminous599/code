@@ -11,40 +11,31 @@
         background-color: #f00;
     }
 </style>
+<script src="./js/vue.js"></script>
 
 <body>
-    <div id="app">
-        <input type="text" v-model = "Proname">
-        <button @click = "add()">添加</button>
+    <div class="app">
+        <input type="text" v-model="proName">
+        <button @click="add">add</button>
         <ul>
-            <li v-for = "(obj,index) in list" @click = "change(obj)" :key="obj.name" :class="{red:obj.isRed}" >
-                {{obj.name}}
-                <button @click = "del(index)">delete</button>
-            </li>
+            <li v-for="(obj,index) in list" @click=""></li>
         </ul>
     </div>
 
-    <script src="./vue.js"></script>
     <script>
-        new Vue({
-            el:"#app",
+        let app = new Vue({
+            el: "#app",
             data:{
                 list:[
-                    {name:"苹果",isRed:false},
-                    {name:"香蕉",isRed:false}
+                    {name:"菠萝",isSelected:false},
+                    {name:"柠檬",isSelected:false}
                 ],
-                Proname:""
+                proName:''
             },
             methods:{
                 add(){
-                    this.list.push({name:this.Proname,isRed:false});
-                    this.Proname = "";
-                },
-                change(obj){
-                    obj.isRed = !obj.isRed;
-                },
-                del(index){
-                    this.list.splice(index,1)
+                    this.list.push({name:this.proName,isSelected:false});
+                    proName = '';
                 }
             }
         })

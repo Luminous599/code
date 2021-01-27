@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr1 = [1,2,3,[4,5,[6,7,[8,9]]]];
+        let arr2 = {
+            a:"1",
+            b:"2",
+            c:{
+                d:"3",
+                e:"4"
+            }
+        };
+        //递归
+        let deepClone = function(target){
+            let result;
+            if(typeof(target) === "object"){
+                if(Array.isArray(target)){
+                    result = [];
+                    for(let i=0;i<target.length;i++){
+                        result.push(deepClone(target[i]));
+                    }
+                }else{
+                    for(let key in target){
+                        result[key] = deepClone(target[key]);
+                    }
+                }
+                return result;
+            }else{
+                return target;
+            }
+        }
+            
+        let arr3 = deepClone(arr1);
+        arr1[0] = "hello";
+        console.log(arr3);
+
+
+        //JSon 有局限 只适用于对象
+        // 1.当对象为时间对象时，复制后的值变为字符串，就没有时间对象对应的方法
+        // 2.当对象里面的值为函数或者undefined时就不拷贝
+        let arr4 =JSON.parse(JSON.stringify(arr2));
+        arr2.c.d = "world";
+        console.log(arr4);
+    </script>
+</body>
+</html>
